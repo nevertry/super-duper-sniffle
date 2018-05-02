@@ -1,0 +1,211 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/api/cloud/v1
+
+# Jeans Could
+
+JNSCLD utilizes OAuth 2.0 Authentication which generates token on user sign in. Token is required for most requests.
+
+Token can be send as `access_token` parameter in query string or as header in such format Authorization: Bearer {access_token}.
+
+When sending request with body of JSON headers should contain `Content-Type: application/json`.
+
+## Group Authentication
+## Login [/auth/login]
+### Login [POST]
+
+Authenticate using `username` and `password` to generate `access_token`. `client_id` and `client_secret` set as static.
+
+Request will be redirected to `/oauth/client/access_token`.
+
++ Request (application/json)
+
+        {
+            "username": "ilham.r+1@smooets.com",
+            "password": "12345678",
+            "client_id": "F6BmD1wNE65qWirtqVm4sj8m1Sfv96MJq1TaLFO8",
+            "client_secret": "fbVcywdJnC4MJnQ58KfnMjvoiKIQG9gJm86oGnLM",
+            "grant_type": "password"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /oauth/client/access_token
+
+    + Body
+
+            {
+                "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
+                "token_type": "Bearer",
+                "expires_in": 604800
+            }
+
+## Registration [/auth/register]
+### Register [POST]
+
+Register new user.
+
++ Request (application/json)
+
+        {
+            "email": "user@example.com",
+            "password": "12345678",
+            "password_confirmation": "12345678",
+            "phone" : "082123978621"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /oauth/client
+
+    + Body
+
+            {
+                "error": 200,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "email": "user@example.com",
+                        "username": "082123978621",
+                        "type": 2,
+                        "updated_at": "2018-04-30 15:51:26",
+                        "created_at": "2018-04-30 15:51:25",
+                        "id": 7,
+                        "address_id": 3,
+                        "address": {
+                            "phone": "082123978621",
+                            "updated_at": "2018-04-30 15:51:25",
+                            "created_at": "2018-04-30 15:51:25",
+                            "id": 3
+                        }
+                    }
+                }
+            }
+
+## Group Banner
+
+Resource related to Banner.
+`token` is required.
+
+## Banner List [/banners]
+### Banner List [GET]
+Banner List.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "header": [
+                            {
+                                "id": "qwe",
+                                "title": "Header News 1",
+                                "content": "Content 1",
+                                "image_name": "PROMO KEMERDEKAAN",
+                                "image_path": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                "image_path_thumbnails": {
+                                    "s": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "banners/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                },
+                                "publish_date": "2018-01-20 0:00:00"
+                            },
+                            {
+                                "id": "asd",
+                                "title": "Header News 2",
+                                "content": "Content 2",
+                                "image_name": "PROMO KEMERDEKAAN",
+                                "image_path": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                "image_path_thumbnails": {
+                                    "s": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "banners/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                },
+                                "publish_date": "2018-01-20 0:00:00"
+                            },
+                            {
+                                "id": "zxc",
+                                "title": "Header News 3",
+                                "content": "Content 3",
+                                "image_name": "PROMO KEMERDEKAAN",
+                                "image_path": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                "image_path_thumbnails": {
+                                    "s": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "banners/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                },
+                                "publish_date": "2018-01-20 0:00:00"
+                            }
+                        ],
+                        "middle": [
+                            {
+                                "id": "qwe",
+                                "title": "Header News 1",
+                                "content": "Content 1",
+                                "image_name": "PROMO KEMERDEKAAN",
+                                "image_path": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                "image_path_thumbnails": {
+                                    "s": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "banners/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                },
+                                "publish_date": "2018-01-20 0:00:00"
+                            }
+                        ],
+                        "footer": [
+                            {
+                                "id": "qwe",
+                                "title": "Header News 1",
+                                "content": "Content 1",
+                                "image_name": "PROMO KEMERDEKAAN",
+                                "image_path": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                "image_path_thumbnails": {
+                                    "s": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "banners/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                },
+                                "publish_date": "2018-01-20 0:00:00"
+                            }
+                        ]                
+                    }
+                }
+            }
+
+## Banner Detail [/banners/{bannerId}]
+### Banner Detail [GET]
+Banner Detail.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "title": "Header News 1",
+                        "content": "Content 1",
+                        "image_name": "PROMO KEMERDEKAAN",
+                        "image_path": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                        "image_path_thumbnails": {
+                            "s": "banners/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                            "m": "banners/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                            "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                        },
+                        "publish_date": "2018-01-20 0:00:00"
+                    }
+                }
+            }

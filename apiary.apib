@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/api/cloud/v1
 
-# Jeans Could
+# J Cloud
 
 JNSCLD utilizes OAuth 2.0 Authentication which generates token on user sign in. Token is required for most requests.
 
@@ -29,16 +29,18 @@ Request will be redirected to `/oauth/client/access_token`.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /oauth/client/access_token
-
     + Body
 
             {
-                "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
-                "token_type": "Bearer",
-                "expires_in": 604800
+                "error": 200,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
+                        "token_type": "Bearer",
+                        "expires_in": 604800
+                    }
+                }
             }
 
 ## Registration [/auth/register]
@@ -56,10 +58,6 @@ Register new user.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /oauth/client
 
     + Body
 
@@ -206,6 +204,126 @@ Banner Detail.
                             "l": "banners/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
                         },
                         "publish_date": "2018-01-20 0:00:00"
+                    }
+                }
+            }
+
+## Group Notification
+
+Resource related to Notification.
+`token` is required.
+
+## Notification List Recent [/notifications/recent]
+### User Recent Notification [GET]
+List latest user's notifications. Sorted by date descending.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": [
+                        {
+                            "id": "zxc",
+                            "notification": {
+                                "id": "cxz",
+                                "title": "Report for \"PIRING CANTIK\" received!",
+                                "content": "Your report for \"PIRING CANTIK\" is being reviewed.",
+                                "type": "notification"
+                            },
+                            "status": "UNREAD",
+                            "category": {
+                                "a": true,
+                                "b": false
+                            },
+                            "testimony": null,
+                            "rate": null,
+                            "timestamp": "2018-04-02 15:17:51"
+                        },
+                        {
+                            "id": "asd",
+                            "notification": {
+                                "id": "dsa",
+                                "title": "Order SO9832462 completed!",
+                                "content": "Order has been completed",
+                                "type": "notification"
+                            },
+                            "status": "UNREAD",
+                            "category": {
+                                "a": true
+                            },
+                            "testimony": null,
+                            "rate": null,
+                            "timestamp": "2018-04-02 14:17:51"
+                        },
+                        {
+                            "id": "qwe",
+                            "notification": {
+                                "id": "ewq",
+                                "title": "Welcome To Jonas Cloud!",
+                                "content": "Thank you for joining us! Please enjoy your benefit as member!",
+                                "type": "notification"
+                            },
+                            "status": "READ",
+                            "category": {
+                                "a": true
+                            },
+                            "testimony": "OK!",
+                            "rate": 5,
+                            "timestamp": "2018-04-02 13:17:51"
+                        }
+                    ],
+                    "meta": {
+                        "pagination": {
+                            "total": 30,
+                            "count": 0,
+                            "per_page": 3,
+                            "current_page": 2,
+                            "total_pages": 10,
+                            "links": {
+                                "previous": "{endpoint}?page=1",
+                                "next": "{endpoint}?page=2"
+                            }
+                        }
+                    }
+                }
+            }
+
+## Notification Detail [/notifications/view/{notificationId}]
+### Read Notification [GET]
+Show specific notification by Id. Count as updating status to `READ`.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "zxc",
+                        "notification": {
+                            "id": "cxz",
+                            "title": "Report for \"PIRING CANTIK\" received!",
+                            "content": "Your report for \"PIRING CANTIK\" is being reviewed.",
+                            "type": "notification"
+                        },
+                        "status": "UNREAD",
+                        "category": {
+                            "a": true,
+                            "b": false
+                        },
+                        "testimony": null,
+                        "rate": null,
+                        "timestamp": "2018-04-02 15:17:51"
                     }
                 }
             }

@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/api/cloud/v1
+HOST: http://polls.apiblueprint.org/jc/api/v1
 
 # J Cloud
 
@@ -111,10 +111,10 @@ Request will be redirected to `/oauth/client/access_token`.
                 }
             }
 
-## Registration [/auth/register]
+## Registration Step 1 [/auth/register]
 ### Register [POST]
 
-Register new user.
+Register step 1: new user.
 
 + Request (application/json)
 
@@ -139,10 +139,107 @@ Register new user.
                         "name": "Jon Otto",
                         "username": "08974453551",
                         "email": "jonotto@example.com",
+                        "avatar": null,
+                        "gender": null,
+                        "birth_place": null,
+                        "birth_date": null,
+                        "phone": "08974453551",
+                        "addresses": {
+                            "main": {
+                                "id": "",
+                                "country": {
+                                    "id": "",
+                                    "name": null,
+                                    "code": null,
+                                    "phoneCode": null
+                                },
+                                "province": {
+                                    "id": "",
+                                    "name": null
+                                },
+                                "city": {
+                                    "id": "",
+                                    "name": null
+                                },
+                                "district": {
+                                    "id": "",
+                                    "name": null
+                                },
+                                "address": null,
+                                "postcode": null,
+                                "phone": null,
+                                "fax": null
+                            },
+                            "other": []
+                        }
+                    }
+                }
+            }
+
+## Registration Step 2 [/auth/register/profile]
+### Register Profile Completion [POST]
+
+Register step 2: Profile Completion.
+
++ Request (application/json)
+
+        {
+            "id": "qwe",
+            "customer_id": "ewq",
+            "name": "Jon Otto",
+            "username": "08974453551",
+            "email": "jonotto@example.com",
+            "avatar": "uploads/avatars/15247262300.jpg",
+            "gender": 1,
+            "birth_place": "Jakarta",
+            "birth_date": "1945-08-17",
+            "phone": "08974453551",
+            "addresses": {
+                "main": {
+                    "country": {
+                        "id": "qwe",
+                        "name": "Indonesia",
+                        "code": "IDN",
+                        "phoneCode": "62"
+                    },
+                    "province": {
+                        "id": "qwe",
+                        "name": "Jawa Barat"
+                    },
+                    "city": {
+                        "id": "qwe",
+                        "name": "Bandung"
+                    },
+                    "district": {
+                        "id": "qwe",
+                        "name": "Galaxy"
+                    },                
+                    "address": "Jln Sinar Jaya",
+                    "postcode": "40561",
+                    "phone": "08974453551",
+                    "fax": null
+                }
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 200,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "customer_id": "ewq",
+                        "name": "Jon Otto",
+                        "username": "08974453551",
+                        "email": "jonotto@example.com",
                         "avatar": "uploads/avatars/15247262300.jpg",
                         "gender": 1,
                         "birth_place": null,
-                        "birth_date": "1998-01-01",
+                        "birth_date": "1945-08-17",
                         "phone": "08974453551",
                         "addresses": {
                             "main": {
@@ -170,33 +267,69 @@ Register new user.
                                 "phone": "08974453551",
                                 "fax": null
                             },
-                            "other": [
-                                {
+                            "other": []
+                        }
+                    }
+                }
+            }
+
+## Registration Step 3 [/auth/register/activation]
+### Register Activation [POST]
+
+Register step 3: Activation
+
++ Request (application/json)
+
+        {
+            "otp": "35F7Q3"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 200,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "customer_id": "ewq",
+                        "name": "Jon Otto",
+                        "username": "08974453551",
+                        "email": "jonotto@example.com",
+                        "avatar": "uploads/avatars/15247262300.jpg",
+                        "gender": 1,
+                        "birth_place": null,
+                        "birth_date": "1945-08-17",
+                        "phone": "08974453551",
+                        "addresses": {
+                            "main": {
+                                "id": "qwe",
+                                "country": {
                                     "id": "qwe",
-                                    "country": {
-                                        "id": "qwe",
-                                        "name": "Indonesia",
-                                        "code": "IDN",
-                                        "phoneCode": "62"
-                                    },
-                                    "province": {
-                                        "id": "qwe",
-                                        "name": "Jawa Barat"
-                                    },
-                                    "city": {
-                                        "id": "qwe",
-                                        "name": "Bandung"
-                                    },
-                                    "district": {
-                                        "id": "qwe",
-                                        "name": "Galaxy"
-                                    },
-                                    "address": "Jln Planetarium",
-                                    "postcode": "40561",
-                                    "phone": null,
-                                    "fax": null
-                                }
-                            ]
+                                    "name": "Indonesia",
+                                    "code": "IDN",
+                                    "phoneCode": "62"
+                                },
+                                "province": {
+                                    "id": "qwe",
+                                    "name": "Jawa Barat"
+                                },
+                                "city": {
+                                    "id": "qwe",
+                                    "name": "Bandung"
+                                },
+                                "district": {
+                                    "id": "qwe",
+                                    "name": "Galaxy"
+                                },                
+                                "address": "Jln Sinar Jaya",
+                                "postcode": "40561",
+                                "phone": "08974453551",
+                                "fax": null
+                            },
+                            "other": []
                         }
                     }
                 }

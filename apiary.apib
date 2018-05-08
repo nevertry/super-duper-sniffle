@@ -21,10 +21,7 @@ Request will be redirected to `/oauth/client/access_token`.
 
         {
             "username": "ilham.r+1@smooets.com",
-            "password": "12345678",
-            "client_id": "F6BmD1wNE65qWirtqVm4sj8m1Sfv96MJq1TaLFO8",
-            "client_secret": "fbVcywdJnC4MJnQ58KfnMjvoiKIQG9gJm86oGnLM",
-            "grant_type": "password"
+            "password": "12345678"
         }
 
 + Response 201 (application/json)
@@ -135,44 +132,51 @@ Register step 1: new user.
                 "message": "Success",
                 "result": {
                     "data": {
-                        "id": "qwe",
-                        "otp_activated": false,
-                        "customer_id": "ewq",
-                        "name": "Jon Otto",
-                        "username": "08974453551",
-                        "email": "jonotto@example.com",
-                        "avatar": null,
-                        "gender": null,
-                        "birth_place": null,
-                        "birth_date": null,
-                        "phone": "08974453551",
-                        "addresses": {
-                            "main": {
-                                "id": "",
-                                "country": {
+                        "token": {
+                            "access_token": "d05Z4hVfqYNY3j7Zjt2Ok51HUnPRRb8wYQySh2iV",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": false,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": null,
+                            "gender": null,
+                            "birth_place": null,
+                            "birth_date": null,
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
                                     "id": "",
-                                    "name": null,
-                                    "code": null,
-                                    "phoneCode": null
+                                    "country": {
+                                        "id": "",
+                                        "name": null,
+                                        "code": null,
+                                        "phoneCode": null
+                                    },
+                                    "province": {
+                                        "id": "",
+                                        "name": null
+                                    },
+                                    "city": {
+                                        "id": "",
+                                        "name": null
+                                    },
+                                    "district": {
+                                        "id": "",
+                                        "name": null
+                                    },
+                                    "address": null,
+                                    "postcode": null,
+                                    "phone": null,
+                                    "fax": null
                                 },
-                                "province": {
-                                    "id": "",
-                                    "name": null
-                                },
-                                "city": {
-                                    "id": "",
-                                    "name": null
-                                },
-                                "district": {
-                                    "id": "",
-                                    "name": null
-                                },
-                                "address": null,
-                                "postcode": null,
-                                "phone": null,
-                                "fax": null
-                            },
-                            "other": []
+                                "other": []
+                            }
                         }
                     }
                 }
@@ -222,44 +226,51 @@ Register step 2: Profile Completion.
                 "message": "Success",
                 "result": {
                     "data": {
-                        "id": "qwe",
-                        "otp_activated": false,
-                        "customer_id": "ewq",
-                        "name": "Jon Otto",
-                        "username": "08974453551",
-                        "email": "jonotto@example.com",
-                        "avatar": "uploads/avatars/15247262300.jpg",
-                        "gender": 1,
-                        "birth_place": null,
-                        "birth_date": "1945-08-17",
-                        "phone": "08974453551",
-                        "addresses": {
-                            "main": {
-                                "id": "qwe",
-                                "country": {
+                        "token": {
+                            "access_token": "d05Z4hVfqYNY3j7Zjt2Ok51HUnPRRb8wYQySh2iV",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": false,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": "uploads/avatars/15247262300.jpg",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1945-08-17",
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
                                     "id": "qwe",
-                                    "name": "Indonesia",
-                                    "code": "IDN",
-                                    "phoneCode": "62"
+                                    "country": {
+                                        "id": "qwe",
+                                        "name": "Indonesia",
+                                        "code": "IDN",
+                                        "phoneCode": "62"
+                                    },
+                                    "province": {
+                                        "id": "qwe",
+                                        "name": "Jawa Barat"
+                                    },
+                                    "city": {
+                                        "id": "qwe",
+                                        "name": "Bandung"
+                                    },
+                                    "district": {
+                                        "id": "qwe",
+                                        "name": "Galaxy"
+                                    },                
+                                    "address": "Jln Sinar Jaya",
+                                    "postcode": "40561",
+                                    "phone": "08974453551",
+                                    "fax": null
                                 },
-                                "province": {
-                                    "id": "qwe",
-                                    "name": "Jawa Barat"
-                                },
-                                "city": {
-                                    "id": "qwe",
-                                    "name": "Bandung"
-                                },
-                                "district": {
-                                    "id": "qwe",
-                                    "name": "Galaxy"
-                                },                
-                                "address": "Jln Sinar Jaya",
-                                "postcode": "40561",
-                                "phone": "08974453551",
-                                "fax": null
-                            },
-                            "other": []
+                                "other": []
+                            }
                         }
                     }
                 }
@@ -285,44 +296,51 @@ Register step 3: Activation
                 "message": "Success",
                 "result": {
                     "data": {
-                        "id": "qwe",
-                        "otp_activated": true,
-                        "customer_id": "ewq",
-                        "name": "Jon Otto",
-                        "username": "08974453551",
-                        "email": "jonotto@example.com",
-                        "avatar": "uploads/avatars/15247262300.jpg",
-                        "gender": 1,
-                        "birth_place": null,
-                        "birth_date": "1945-08-17",
-                        "phone": "08974453551",
-                        "addresses": {
-                            "main": {
-                                "id": "qwe",
-                                "country": {
+                        "token": {
+                            "access_token": "d05Z4hVfqYNY3j7Zjt2Ok51HUnPRRb8wYQySh2iV",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": true,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": "uploads/avatars/15247262300.jpg",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1945-08-17",
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
                                     "id": "qwe",
-                                    "name": "Indonesia",
-                                    "code": "IDN",
-                                    "phoneCode": "62"
+                                    "country": {
+                                        "id": "qwe",
+                                        "name": "Indonesia",
+                                        "code": "IDN",
+                                        "phoneCode": "62"
+                                    },
+                                    "province": {
+                                        "id": "qwe",
+                                        "name": "Jawa Barat"
+                                    },
+                                    "city": {
+                                        "id": "qwe",
+                                        "name": "Bandung"
+                                    },
+                                    "district": {
+                                        "id": "qwe",
+                                        "name": "Galaxy"
+                                    },                
+                                    "address": "Jln Sinar Jaya",
+                                    "postcode": "40561",
+                                    "phone": "08974453551",
+                                    "fax": null
                                 },
-                                "province": {
-                                    "id": "qwe",
-                                    "name": "Jawa Barat"
-                                },
-                                "city": {
-                                    "id": "qwe",
-                                    "name": "Bandung"
-                                },
-                                "district": {
-                                    "id": "qwe",
-                                    "name": "Galaxy"
-                                },                
-                                "address": "Jln Sinar Jaya",
-                                "postcode": "40561",
-                                "phone": "08974453551",
-                                "fax": null
-                            },
-                            "other": []
+                                "other": []
+                            }
                         }
                     }
                 }

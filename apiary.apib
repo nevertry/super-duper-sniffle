@@ -616,7 +616,17 @@ Resource related to Photo.
 
 ## Photo List [/my/photos?]
 ### Photo List [GET]
-List user's photo. Sorted by create date descending.
+List user's photo. By default is sorted by date created in descending.
+
+Can be ordered by name or date created by additional query string:
+
+- Order By Date Created DESC: `orderBy=photos.created_at&sortedBy=desc`
+- Order By Photo Name DESC: `orderBy=photos.name&sortedBy=desc`
+
+Displaying pagination by additional query string:
+
+- Items in page 2: `page=2`
+pagination links can be found in meta.links.
 
 + Request (application/json)
 

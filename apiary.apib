@@ -43,6 +43,7 @@ Request will be redirected to `/oauth/client/access_token`.
                         },
                         "user": {
                             "id": "qwe",
+                            "otp_activated": true,
                             "customer_id": "ewq",
                             "name": "Jon Otto",
                             "username": "08974453551",
@@ -135,6 +136,7 @@ Register step 1: new user.
                 "result": {
                     "data": {
                         "id": "qwe",
+                        "otp_activated": false,
                         "customer_id": "ewq",
                         "name": "Jon Otto",
                         "username": "08974453551",
@@ -232,6 +234,7 @@ Register step 2: Profile Completion.
                 "result": {
                     "data": {
                         "id": "qwe",
+                        "otp_activated": false,
                         "customer_id": "ewq",
                         "name": "Jon Otto",
                         "username": "08974453551",
@@ -294,6 +297,7 @@ Register step 3: Activation
                 "result": {
                     "data": {
                         "id": "qwe",
+                        "otp_activated": true,
                         "customer_id": "ewq",
                         "name": "Jon Otto",
                         "username": "08974453551",
@@ -332,6 +336,31 @@ Register step 3: Activation
                             "other": []
                         }
                     }
+                }
+            }
+
+## Group Upload
+`token` is required.
+
+## User Avatar Image Upload [/upload?]
+### User Avatar Image Upload [POST]
+Upload User Avatar Image Upload.
+
++ Request (application/json)
+
+        {
+           "avatarImg" : "temp://image.jpg"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "filePath": "uploads/avatar/1499994988_96e7bfe7de8c686810ad42bd2ca5693b.jpg"
                 }
             }
 
@@ -576,6 +605,146 @@ Show specific notification by Id. Count as updating status to `READ`.
                         "testimony": null,
                         "rate": null,
                         "timestamp": "2018-04-02 15:17:51"
+                    }
+                }
+            }
+
+## Group Photo
+
+Resource related to Photo.
+`token` is required.
+
+## Photo List [/my/photos?]
+### Photo List [GET]
+List user's photo. Sorted by create date descending.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": [
+                        {
+                            "id": "qwe",
+                            "photo": {
+                                "id": "asd",
+                                "name": "SO1-101919-01",
+                                "meta": {
+                                    "time": {
+                                        "date": "2018-04-01",
+                                        "timestamptz": "2018-03-31 23:23:23"
+                                    },
+                                    "location": {
+                                        "name": "Zulu",
+                                        "longitude": 0,
+                                        "latitude": 0
+                                    },
+                                    "tags": [
+                                        "bandung",
+                                        "gemah",
+                                        "ripah"
+                                    ],
+                                    "bytes": 2000000
+                                },
+                                "file_name": "SO-1000101-0001.jpg",
+                                "file_path": "photos/so/1000101/0001_cfcd208495d565ef66e7dff9f98764da.jpg",
+                                "file_path_thumbnails": {
+                                    "s": "photos/so/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "photos/so/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "photos/so/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                }
+                            },
+                            "is_owner": true,
+                            "created_at": "2018-04-07 12:01:12"
+                        },
+                        {
+                            "id": "qwd",
+                            "photo": {
+                                "id": "asf",
+                                "name": "SO1-101919-02",
+                                "meta": {
+                                    "time": {
+                                        "date": "2018-04-01",
+                                        "timestamptz": "2018-03-31 23:23:23"
+                                    },
+                                    "location": {
+                                        "name": "Zulu",
+                                        "longitude": 0,
+                                        "latitude": 0
+                                    },
+                                    "tags": [
+                                        "bandung",
+                                        "gemah",
+                                        "ripah"
+                                    ],
+                                    "bytes": 2000000
+                                },
+                                "file_name": "SO-1000101-0002.jpg",
+                                "file_path": "photos/so/1000101/0001_cfcd208495d565ef66e7dff9f98764da.jpg",
+                                "file_path_thumbnails": {
+                                    "s": "photos/so/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                    "m": "photos/so/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                    "l": "photos/so/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                                }
+                            },
+                            "is_owner": false,
+                            "created_at": "2018-04-07 11:01:11"
+                        }
+                    ]
+                }
+            }
+
+## Photo Detail [/my/photos/{photoId}]
+### Photo Detail [GET]
+Photo detail
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "photo": {
+                            "id": "asd",
+                            "name": "SO1-101919-01",
+                            "meta": {
+                                "time": {
+                                    "date": "2018-04-01",
+                                    "timestamptz": "2018-03-31 23:23:23"
+                                },
+                                "location": {
+                                    "name": "Zulu",
+                                    "longitude": 0,
+                                    "latitude": 0
+                                },
+                                "tags": [
+                                    "bandung",
+                                    "gemah",
+                                    "ripah"
+                                ],
+                                "bytes": 2000000
+                            },
+                            "file_name": "SO-1000101-0001.jpg",
+                            "file_path": "photos/so/1000101/0001_cfcd208495d565ef66e7dff9f98764da.jpg",
+                            "file_path_thumbnails": {
+                                "s": "photos/so/1000101/0001_c4ca4238a0b923820dcc509a6f75849b.jpg",
+                                "m": "photos/so/1000101/0001_c81e728d9d4c2f636f067f89cc14862c.jpg",
+                                "l": "photos/so/1000101/0001_eccbc87e4b5ce2fe28308fd9f2a7baf3.jpg"
+                            }
+                        },
+                        "is_owner": true,
+                        "created_at": "2018-04-07 12:01:12"
                     }
                 }
             }

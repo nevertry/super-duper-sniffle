@@ -346,6 +346,27 @@ Register step 3: Activation
                 }
             }
 
+## Registration Step 3.1 - OTP Resend [/auth/register/resendOTP]
+### OTP Resend Activation Code [POST]
+
+Register step 3 OTP Resend Activation code.
+`access_token` is required.
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 200,
+                "message": "Success",
+                "result": {
+                    "data": null
+                    }
+                }
+            }
+
 ## Group Upload
 `token` is required.
 

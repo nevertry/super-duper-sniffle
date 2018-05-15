@@ -700,8 +700,8 @@ List user's photo. By default is sorted by date created in descending.
 
 Can be ordered by name or date created by additional query string:
 
-- Order By Date Created DESC: `orderBy=photos.created_at&sortedBy=desc`
-- Order By Photo Name DESC: `orderBy=photos.name&sortedBy=desc`
+- Order By Date Created DESC: `orderBy=photos:photo_id|photos.created_at&sortedBy=desc`
+- Order By Photo Name DESC: `orderBy=photos:photo_id|photos.name&sortedBy=desc`
 
 Displaying pagination by additional query string:
 
@@ -747,7 +747,8 @@ pagination links can be found in meta.links.
                                     "s": "demo/image_1.jpg",
                                     "m": "demo/image_1.jpg",
                                     "l": "demo/image_1.jpg"
-                                }
+                                },
+                                "created_at": "2018-04-07 12:01:12"
                             },
                             "is_owner": true,
                             "created_at": "2018-04-07 12:01:12"
@@ -780,7 +781,8 @@ pagination links can be found in meta.links.
                                     "s": "demo/image_2.jpg",
                                     "m": "demo/image_2.jpg",
                                     "l": "demo/image_2.jpg"
-                                }
+                                },
+                                "created_at": "2018-04-07 12:01:10"
                             },
                             "is_owner": false,
                             "created_at": "2018-04-07 11:01:11"

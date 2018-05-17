@@ -186,6 +186,7 @@ Register step 1: new user.
 ### Register Profile Completion [POST]
 
 Register step 2: Profile Completion.
+Requires `access_token`.
 
 + Request (application/json)
 
@@ -279,7 +280,8 @@ Register step 2: Profile Completion.
 ## Registration Step 3 [/auth/register/activation]
 ### Register Activation [POST]
 
-Register step 3: Activation
+Register step 3: Activation.
+Requires `access_token`.
 
 + Request (application/json)
 
@@ -350,7 +352,7 @@ Register step 3: Activation
 ### OTP Resend Activation Code [POST]
 
 Register step 3 OTP Resend Activation code.
-`access_token` is required.
+Requires `access_token`.
 
 + Request (application/json)
 
@@ -395,7 +397,7 @@ Upload User Avatar Image Upload.
 ## Group Banner
 
 Resource related to Banner.
-`token` is required.
+`token` is NOT required.
 
 ## Banner List [/banners]
 ### Banner List [GET]
@@ -577,6 +579,7 @@ Resource related to Notification.
 ## Notification List Recent [/notifications/recent]
 ### User Recent Notification [GET]
 List latest user's notifications. Sorted by date descending.
+Requires `access_token`.
 
 + Request (application/json)
 
@@ -658,6 +661,7 @@ List latest user's notifications. Sorted by date descending.
 ## Notification Detail [/notifications/view/{notificationId}]
 ### Read Notification [GET]
 Show specific notification by Id. Count as updating status to `READ`.
+Requires `access_token`.
 
 + Request (application/json)
 
@@ -697,6 +701,7 @@ Resource related to Photo.
 ## Photo List [/my/photos?]
 ### Photo List [GET]
 List user's photo. By default is sorted by date created in descending.
+Requires `access_token`.
 
 Can be ordered by name or date created by additional query string:
 
@@ -794,6 +799,7 @@ pagination links can be found in meta.links.
 ## Photo Detail [/my/photos/{photoId}]
 ### Photo Detail [GET]
 Photo detail
+Requires `access_token`.
 
 + Request (application/json)
 

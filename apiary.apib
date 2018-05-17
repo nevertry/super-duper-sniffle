@@ -576,7 +576,7 @@ Banner Detail.
 Resource related to Notification.
 `token` is required.
 
-## Notification List Recent [/notifications/recent]
+## Notification List Recent [/my/notifications/recent]
 ### User Recent Notification [GET]
 List latest user's notifications. Sorted by date descending.
 Requires `access_token`.
@@ -658,7 +658,7 @@ Requires `access_token`.
                 }
             }
 
-## Notification Detail [/notifications/view/{notificationId}]
+## Notification Detail [/my/notifications/view/{notificationId}]
 ### Read Notification [GET]
 Show specific notification by Id. Count as updating status to `READ`.
 Requires `access_token`.
@@ -844,5 +844,482 @@ Requires `access_token`.
                         "is_owner": true,
                         "created_at": "2018-04-07 12:01:12"
                     }
+                }
+            }
+
+## Group Public Resource
+## Master Province List [/master/provinces]
+### Master Province List [GET]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": {
+                    "data": [
+                        {
+                            "id": "g25dj4dk1x",
+                            "name": "Bali"
+                        },
+                        {
+                            "id": "0g8d94env2",
+                            "name": "Bangka Belitung"
+                        },
+                        {
+                            "id": "p2oeo4m1jz",
+                            "name": "Banten"
+                        },
+                        {
+                            "id": "g1xm0pdw02",
+                            "name": "Bengkulu"
+                        },
+                        {
+                            "id": "rg4eyxdo8p",
+                            "name": "DI Yogyakarta"
+                        },
+                        {
+                            "id": "3jqmv9eogy",
+                            "name": "DKI Jakarta"
+                        },
+                        {
+                            "id": "py4e50mvwl",
+                            "name": "Gorontalo"
+                        },
+                        {
+                            "id": "xg3e46d46v",
+                            "name": "Jambi"
+                        },
+                        {
+                            "id": "ynodzymw3x",
+                            "name": "Jawa Barat"
+                        },
+                        {
+                            "id": "kw4eqlm860",
+                            "name": "Jawa Tengah"
+                        },
+                        {
+                            "id": "64ydr1ekz1",
+                            "name": "Jawa Timur"
+                        },
+                        {
+                            "id": "968dw8doy5",
+                            "name": "Kalimantan Barat"
+                        },
+                        {
+                            "id": "42jm6ke10q",
+                            "name": "Kalimantan Selatan"
+                        },
+                        {
+                            "id": "o45eg0d2v8",
+                            "name": "Kalimantan Tengah"
+                        },
+                        {
+                            "id": "z7gdkxe802",
+                            "name": "Kalimantan Timur"
+                        },
+                        {
+                            "id": "rl5mlweo1x",
+                            "name": "Kalimantan Utara"
+                        },
+                        {
+                            "id": "oz8m81e9q0",
+                            "name": "Kepulauan Riau"
+                        },
+                        {
+                            "id": "wnrdn0e2o4",
+                            "name": "Lampung"
+                        },
+                        {
+                            "id": "01jd1gd2w3",
+                            "name": "Maluku"
+                        },
+                        {
+                            "id": "o7qep7ew3z",
+                            "name": "Maluku Utara"
+                        },
+                        {
+                            "id": "nqxe3zdpy0",
+                            "name": "Nanggroe Aceh Darussalam (NAD)"
+                        },
+                        {
+                            "id": "n57e2ydyw6",
+                            "name": "Nusa Tenggara Barat (NTB)"
+                        },
+                        {
+                            "id": "nwpdxqm4v9",
+                            "name": "Nusa Tenggara Timur (NTT)"
+                        },
+                        {
+                            "id": "x19m704e32",
+                            "name": "Papua"
+                        },
+                        {
+                            "id": "g25dj44dk1",
+                            "name": "Papua Barat"
+                        },
+                        {
+                            "id": "0g8d9q4mnv",
+                            "name": "Riau"
+                        },
+                        {
+                            "id": "p2oeol4e1j",
+                            "name": "Sulawesi Barat"
+                        },
+                        {
+                            "id": "g1xm0kpew0",
+                            "name": "Sulawesi Selatan"
+                        },
+                        {
+                            "id": "rg4eyoxdo8",
+                            "name": "Sulawesi Tengah"
+                        },
+                        {
+                            "id": "3jqmv09eog",
+                            "name": "Sulawesi Tenggara"
+                        },
+                        {
+                            "id": "py4e5z0evw",
+                            "name": "Sulawesi Utara"
+                        },
+                        {
+                            "id": "xg3e4v6e46",
+                            "name": "Sumatera Barat"
+                        },
+                        {
+                            "id": "ynodz0yew3",
+                            "name": "Sumatera Selatan"
+                        },
+                        {
+                            "id": "kw4eqwle86",
+                            "name": "Sumatera Utara"
+                        }
+                    ]
+                }
+            }
+
+## Master Cities List [/master/provinces/{provinceHashId}/cities]
+### Master Cities List by Province [GET]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": {
+                    "data": [
+                        {
+                            "id": "n57e2ydyw6",
+                            "name": "Bandung",
+                            "phone_code": null,
+                            "postal_code": "40311"
+                        },
+                        {
+                            "id": "nwpdxqm4v9",
+                            "name": "Bandung",
+                            "phone_code": null,
+                            "postal_code": "40111"
+                        },
+                        {
+                            "id": "x19m704e32",
+                            "name": "Bandung Barat",
+                            "phone_code": null,
+                            "postal_code": "40721"
+                        },
+                        {
+                            "id": "kw4eqwle86",
+                            "name": "Banjar",
+                            "phone_code": null,
+                            "postal_code": "46311"
+                        },
+                        {
+                            "id": "3jqmvk9dog",
+                            "name": "Bekasi",
+                            "phone_code": null,
+                            "postal_code": "17837"
+                        },
+                        {
+                            "id": "py4e5v0dvw",
+                            "name": "Bekasi",
+                            "phone_code": null,
+                            "postal_code": "17121"
+                        },
+                        {
+                            "id": "3jqmv79mog",
+                            "name": "Bogor",
+                            "phone_code": null,
+                            "postal_code": "16911"
+                        },
+                        {
+                            "id": "py4e550evw",
+                            "name": "Bogor",
+                            "phone_code": null,
+                            "postal_code": "16119"
+                        },
+                        {
+                            "id": "p2oeog8m1j",
+                            "name": "Ciamis",
+                            "phone_code": null,
+                            "postal_code": "46211"
+                        },
+                        {
+                            "id": "g1xm0pzdw0",
+                            "name": "Cianjur",
+                            "phone_code": null,
+                            "postal_code": "43217"
+                        },
+                        {
+                            "id": "py4e582evw",
+                            "name": "Cimahi",
+                            "phone_code": null,
+                            "postal_code": "40512"
+                        },
+                        {
+                            "id": "xg3e4yre46",
+                            "name": "Cirebon",
+                            "phone_code": null,
+                            "postal_code": "45611"
+                        },
+                        {
+                            "id": "ynodz9jew3",
+                            "name": "Cirebon",
+                            "phone_code": null,
+                            "postal_code": "45116"
+                        },
+                        {
+                            "id": "z7gdkzpd80",
+                            "name": "Depok",
+                            "phone_code": null,
+                            "postal_code": "16416"
+                        },
+                        {
+                            "id": "0g8d9g5env",
+                            "name": "Garut",
+                            "phone_code": null,
+                            "postal_code": "44126"
+                        },
+                        {
+                            "id": "g25dj9lmk1",
+                            "name": "Indramayu",
+                            "phone_code": null,
+                            "postal_code": "45214"
+                        },
+                        {
+                            "id": "nwpdxj9e4v",
+                            "name": "Karawang",
+                            "phone_code": null,
+                            "postal_code": "41311"
+                        },
+                        {
+                            "id": "64ydry2ekz",
+                            "name": "Kuningan",
+                            "phone_code": null,
+                            "postal_code": "45511"
+                        },
+                        {
+                            "id": "g1xm035mw0",
+                            "name": "Majalengka",
+                            "phone_code": null,
+                            "postal_code": "45412"
+                        },
+                        {
+                            "id": "xg3e4g7e46",
+                            "name": "Pangandaran",
+                            "phone_code": null,
+                            "postal_code": "46511"
+                        },
+                        {
+                            "id": "g1xm047dw0",
+                            "name": "Purwakarta",
+                            "phone_code": null,
+                            "postal_code": "41119"
+                        },
+                        {
+                            "id": "g1xm0rlmw0",
+                            "name": "Subang",
+                            "phone_code": null,
+                            "postal_code": "41215"
+                        },
+                        {
+                            "id": "3jqmv35eog",
+                            "name": "Sukabumi",
+                            "phone_code": null,
+                            "postal_code": "43311"
+                        },
+                        {
+                            "id": "py4e5lgmvw",
+                            "name": "Sukabumi",
+                            "phone_code": null,
+                            "postal_code": "43114"
+                        },
+                        {
+                            "id": "rl5ml92mo1",
+                            "name": "Sumedang",
+                            "phone_code": null,
+                            "postal_code": "45326"
+                        },
+                        {
+                            "id": "o7qep2rmw3",
+                            "name": "Tasikmalaya",
+                            "phone_code": null,
+                            "postal_code": "46411"
+                        },
+                        {
+                            "id": "nqxe3lnepy",
+                            "name": "Tasikmalaya",
+                            "phone_code": null,
+                            "postal_code": "46116"
+                        }
+                    ]
+                }
+            }
+
+## Master District List [/master/provinces/{provinceHashId}/cities/{citiHashId}/districts]
+### Master District List By Province, City [GET]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": {
+                    "data": [
+                        {
+                            "id": "py4e57ndvw",
+                            "name": "Arjasari"
+                        },
+                        {
+                            "id": "xg3e4r7d46",
+                            "name": "Baleendah"
+                        },
+                        {
+                            "id": "ynodzx8ew3",
+                            "name": "Banjaran"
+                        },
+                        {
+                            "id": "kw4eqg9d86",
+                            "name": "Bojongsoang"
+                        },
+                        {
+                            "id": "64ydrk3mkz",
+                            "name": "Cangkuang"
+                        },
+                        {
+                            "id": "968dwryeoy",
+                            "name": "Cicalengka"
+                        },
+                        {
+                            "id": "42jm6koe10",
+                            "name": "Cikancung"
+                        },
+                        {
+                            "id": "o45eg4ve2v",
+                            "name": "Cilengkrang"
+                        },
+                        {
+                            "id": "z7gdkw2d80",
+                            "name": "Cileunyi"
+                        },
+                        {
+                            "id": "rl5ml7gdo1",
+                            "name": "Cimaung"
+                        },
+                        {
+                            "id": "oz8m87qe9q",
+                            "name": "Cimeunyan"
+                        },
+                        {
+                            "id": "wnrdn97e2o",
+                            "name": "Ciparay"
+                        },
+                        {
+                            "id": "01jd117d2w",
+                            "name": "Ciwidey"
+                        },
+                        {
+                            "id": "o7qep0odw3",
+                            "name": "Dayeuhkolot"
+                        },
+                        {
+                            "id": "nqxe3nkdpy",
+                            "name": "Ibun"
+                        },
+                        {
+                            "id": "n57e2g3dyw",
+                            "name": "Katapang"
+                        },
+                        {
+                            "id": "nwpdxw1m4v",
+                            "name": "Kertasari"
+                        },
+                        {
+                            "id": "x19m7g9m32",
+                            "name": "Kutawaringin"
+                        },
+                        {
+                            "id": "g25djrrmk1",
+                            "name": "Majalaya"
+                        },
+                        {
+                            "id": "0g8d9j7env",
+                            "name": "Margaasih"
+                        },
+                        {
+                            "id": "p2oeoore1j",
+                            "name": "Margahayu"
+                        },
+                        {
+                            "id": "g1xm0n7ew0",
+                            "name": "Nagreg"
+                        },
+                        {
+                            "id": "rg4ey73eo8",
+                            "name": "Pacet"
+                        },
+                        {
+                            "id": "3jqmvqwdog",
+                            "name": "Pameungpeuk"
+                        },
+                        {
+                            "id": "py4e5xnmvw",
+                            "name": "Pangalengan"
+                        },
+                        {
+                            "id": "xg3e4g7e46",
+                            "name": "Paseh"
+                        },
+                        {
+                            "id": "ynodzj8mw3",
+                            "name": "Pasirjambu"
+                        },
+                        {
+                            "id": "kw4eqy9d86",
+                            "name": "Ranca Bali"
+                        },
+                        {
+                            "id": "64ydrv3ekz",
+                            "name": "Rancaekek"
+                        },
+                        {
+                            "id": "968dwvymoy",
+                            "name": "Solokan Jeruk"
+                        },
+                        {
+                            "id": "42jm6rom10",
+                            "name": "Soreang"
+                        }
+                    ]
                 }
             }

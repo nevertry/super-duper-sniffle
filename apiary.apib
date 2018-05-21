@@ -369,6 +369,26 @@ Requires `access_token`.
                 }
             }
 
+## Logout [/auth/logout]
+### Logout [POST]
+
+Logout session and delete current `access_token` from database.
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "Success",
+                "result": {
+                    "data": null
+                    }
+                }
+            }
+                
 ## Group Upload
 `token` is required.
 

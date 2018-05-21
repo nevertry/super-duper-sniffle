@@ -484,6 +484,7 @@ Update authorized user's Profile
 Only these attributes are allowed to edit:
 
 - avatar ; updating avatar requires upload API first to get avatar path
+- name
 - email
 - phone
 - addresses.main
@@ -493,6 +494,7 @@ Only these attributes are allowed to edit:
 + Request (application/json)
 
         {
+            "name": "Jon Otto",
             "email": "jonotto@example.com",
             "avatar": "uploads/avatars/15247262300.jpg",
             "gender": 1,
@@ -539,7 +541,7 @@ Only these attributes are allowed to edit:
                         "id": "qwe",
                         "otp_activated": true,
                         "customer_id": "ewq",
-                        "name": "Jon Otten",
+                        "name": "Jon Otto",
                         "username": "08974453551",
                         "email": "jonotto@example.com",
                         "avatar": "uploads/avatars/15247262300.jpg",

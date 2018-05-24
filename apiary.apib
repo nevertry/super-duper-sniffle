@@ -485,7 +485,6 @@ Only these attributes are allowed to edit:
 
 - avatar ; updating avatar requires upload API first to get avatar path
 - name
-- email
 - phone
 - addresses.main
 - gender
@@ -495,7 +494,6 @@ Only these attributes are allowed to edit:
 
         {
             "name": "Jon Otto",
-            "email": "jonotto@example.com",
             "avatar": "uploads/avatars/15247262300.jpg",
             "gender": 1,
             "birth_date": "1945-08-17",
@@ -528,6 +526,7 @@ Only these attributes are allowed to edit:
                 },
                 "other": []
             }
+        }
 
 + Response 201 (application/json)
 
@@ -1317,6 +1316,40 @@ Requires `access_token`.
                                 }
                             ]
                         }
+                    }
+                }
+            }
+
+## Group Static Pages
+## Static Pages detail [/page/{slug}]
+### Detail Static Page [GET]
+List of static pagesRequires `access_token`.
+
+List of available page slugs:
+
+- `about-us`
+- `contact`
+- `term-of-services`
+- `privacy-policys`
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "status": 1,
+                        "title": "Privacy Policy",
+                        "slug": "privacy-policy",
+                        "icon": "fa-question-circle",
+                        "category": 5,
+                        "content": "<p>HTML text formatted<\/p>"
                     }
                 }
             }

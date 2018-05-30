@@ -112,6 +112,10 @@ Request will be redirected to `/oauth/client/access_token`.
 ## Registration Step 1 [/auth/register]
 ### Register [POST]
 
+Notes:
+
+- `socialmedia_type` and `socialmedia_id` is optional, used when logged in with `facebook` or `google`.
+
 Register step 1: new user.
 
 + Request (application/json)
@@ -120,7 +124,9 @@ Register step 1: new user.
             "email": "user@example.com",
             "password": "12345678",
             "password_confirmation": "12345678",
-            "phone" : "082123978621"
+            "phone" : "082123978621",
+            "socialmedia_type": "facebook",
+            "socialmedia_id": "1287645273462"
         }
 
 + Response 201 (application/json)

@@ -124,9 +124,7 @@ Register step 1: new user.
             "email": "user@example.com",
             "password": "12345678",
             "password_confirmation": "12345678",
-            "phone" : "082123978621",
-            "socialmedia_type": "facebook",
-            "socialmedia_id": "1287645273462"
+            "phone" : "082123978621"
         }
 
 + Response 201 (application/json)
@@ -1052,6 +1050,11 @@ List user's album. By default is sorted by date created in descending (newest fi
 Requires `access_token`.
 
 META `photo_count` and `photo_thumbnail_path` value is dynamic. Album.`photo_thumbnail_path` can be null if there is no photo.
+
+By default User Album is not filtered at all, but can be filtered by type:
+
+- Filter By User Album: `type=user` --> default if `type` is not recognized
+- Filter By In House Album: `type=inhouse`
 
 Can be ordered by name or date created by additional query string:
 

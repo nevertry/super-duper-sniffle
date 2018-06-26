@@ -392,7 +392,302 @@ Logout session and delete current `access_token` from database.
                     }
                 }
             }
-                
+
+## Group Authentication with Social Media
+
+Currently supported sources:
+
+- `facebook`
+- `google`
+
+## Register with Social Media [/auth/source/register]
+### Source Register [POST]
+
+Get verification id of a user authenticated with Source from Social Media Account.
+
+Available Sources:
+
+- `facebook`
+- `google`
+
++ Request (application/json)
+
+        {
+           "email": "temp://image.jpg",
+           "source": "facebook",
+           "source_id": "10156016487339821",
+           "access_token": "EAADGc95zIv0BAJsWpcTy22dHLKR4TkxTj2id503ISai697ZB2BAeULvE3C0Idn7KTMXXXRW3XW1Qnr4FcA6IZBZCZChTweBgdxaogM6FoEs5eFZASUeWRZAOjXX0XnCcmdEAO2iZCZC3peWm6JQQASDUFbsHdqgZDZD"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "hash_id": "96e7bfe7de8c686810ad42bd2ca5693b",
+                    "email": "user@example.com"
+                }
+            }
+
+## Validate with Social Media [/auth/source/login]
+### Source Register Validation [POST]
+
+Validate source. Successful Response can formed as authentication (/auth/login) or same as Source Register
+
++ Request (application/json)
+
+        {
+           "email": "temp://image.jpg",
+           "source": "facebook",
+           "source_id": "10156016487339821",
+           "access_token": "EAADGc95zIv0BAJsWpcTy22dHLKR4TkxTj2id503ISai697ZB2BAeULvE3C0Idn7KTMXXXRW3XW1Qnr4FcA6IZBZCZChTweBgdxaogM6FoEs5eFZASUeWRZAOjXX0XnCcmdEAO2iZCZC3peWm6JQQASDUFbsHdqgZDZD"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "hash_id": "96e7bfe7de8c686810ad42bd2ca5693b",
+                    "email": "user@example.com"
+                }
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "token": {
+                            "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": true,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": "uploads/avatars/15247262300.jpg",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1998-01-01",
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
+                                    "id": "qwe",
+                                    "country": {
+                                        "id": "qwe",
+                                        "name": "Indonesia",
+                                        "code": "IDN",
+                                        "phoneCode": "62"
+                                    },
+                                    "province": {
+                                        "id": "qwe",
+                                        "name": "Jawa Barat"
+                                    },
+                                    "city": {
+                                        "id": "qwe",
+                                        "name": "Bandung"
+                                    },
+                                    "district": {
+                                        "id": "qwe",
+                                        "name": "Galaxy"
+                                    },                
+                                    "address": "Jln Sinar Jaya",
+                                    "postcode": "40561",
+                                    "phone": "08974453551",
+                                    "fax": null
+                                },
+                                "other": [
+                                    {
+                                        "id": "qwe",
+                                        "country": {
+                                            "id": "qwe",
+                                            "name": "Indonesia",
+                                            "code": "IDN",
+                                            "phoneCode": "62"
+                                        },
+                                        "province": {
+                                            "id": "qwe",
+                                            "name": "Jawa Barat"
+                                        },
+                                        "city": {
+                                            "id": "qwe",
+                                            "name": "Bandung"
+                                        },
+                                        "district": {
+                                            "id": "qwe",
+                                            "name": "Galaxy"
+                                        },
+                                        "address": "Jln Planetarium",
+                                        "postcode": "40561",
+                                        "phone": null,
+                                        "fax": null
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+
+## Group Password Reset
+## Reset Password Initiate [/auth/forgot/reset]
+### Reset Password Initiate [POST]
+Initiate forgot password process.
+
++ Request (application/json)
+
+        {
+           "username" : "canBeEmailOrUsernameAKAPhoneNumber"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "OTP Sent to +82123XXXXX",
+                "result": null
+            }
+
+## Reset Password OTP Confirmation [/auth/forgot/confirmOTP]
+### Reset Password OTP Confirmation [POST]
+Confirm OTP.
+
++ Request (application/json)
+
+        {
+           "username" : "canBeEmailOrUsernameAKAPhoneNumberMatchedInPasswordResetTable",
+           "otp": "OTP123"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success! Please set new Password.",
+                "result": {
+                    "data": {
+                        "secret": "HASHEDSECRET"
+                    }
+                }
+            }
+
+## Reset Password Update [/auth/forgot/update]
+### Reset Password Update [POST]
+Update password to get login information.
+
++ Request (application/json)
+
+        {
+           "username" : "canBeEmailOrUsernameAKAPhoneNumberMatchedInPasswordResetTable",
+           "secret": "HASHEDSECRET",
+           "newPassword": "NewPassword123!",
+           "newPasswordConfirmation": "NewPassword123!"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "token": {
+                            "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": true,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": "uploads/avatars/15247262300.jpg",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1998-01-01",
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
+                                    "id": "qwe",
+                                    "country": {
+                                        "id": "qwe",
+                                        "name": "Indonesia",
+                                        "code": "IDN",
+                                        "phoneCode": "62"
+                                    },
+                                    "province": {
+                                        "id": "qwe",
+                                        "name": "Jawa Barat"
+                                    },
+                                    "city": {
+                                        "id": "qwe",
+                                        "name": "Bandung"
+                                    },
+                                    "district": {
+                                        "id": "qwe",
+                                        "name": "Galaxy"
+                                    },                
+                                    "address": "Jln Sinar Jaya",
+                                    "postcode": "40561",
+                                    "phone": "08974453551",
+                                    "fax": null
+                                },
+                                "other": [
+                                    {
+                                        "id": "qwe",
+                                        "country": {
+                                            "id": "qwe",
+                                            "name": "Indonesia",
+                                            "code": "IDN",
+                                            "phoneCode": "62"
+                                        },
+                                        "province": {
+                                            "id": "qwe",
+                                            "name": "Jawa Barat"
+                                        },
+                                        "city": {
+                                            "id": "qwe",
+                                            "name": "Bandung"
+                                        },
+                                        "district": {
+                                            "id": "qwe",
+                                            "name": "Galaxy"
+                                        },
+                                        "address": "Jln Planetarium",
+                                        "postcode": "40561",
+                                        "phone": null,
+                                        "fax": null
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+
 ## Group Upload
 `access_token` is required.
 
@@ -413,8 +708,10 @@ Upload User Avatar Image Upload.
             {
                 "code": 0,
                 "message": "Success",
-                "data": {
-                    "filePath": "uploads/avatar/1499994988_96e7bfe7de8c686810ad42bd2ca5693b.jpg"
+                "result": {
+                    "data": {
+                        "filePath": "uploads/avatar/1499994988_96e7bfe7de8c686810ad42bd2ca5693b.jpg"
+                    }
                 }
             }
 
@@ -1051,9 +1348,9 @@ Requires `access_token`.
 
 META `photo_count` and `photo_thumbnail_path` value is dynamic. Album.`photo_thumbnail_path` can be null if there is no photo.
 
-By default User Album is not filtered at all, but can be filtered by type:
+By default User Album is not filtered at all (empty), but can be filtered by type:
 
-- Filter By User Album: `type=user` --> default if `type` is not recognized
+- Filter By User Album: `type=user` --> as default if `type` is not recognized
 - Filter By In House Album: `type=inhouse`
 
 Can be ordered by name or date created by additional query string:
@@ -1253,7 +1550,7 @@ Requires `access_token`.
 + Request (application/json)
 
         {
-            "name": "Holiday 2018"
+            "name": "Holiday 2018",
             "photos": [
                 "userPhotoId1",
                 "userPhotoId2"

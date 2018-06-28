@@ -1654,7 +1654,7 @@ Requires `access_token`.
 
 ## Group Share
 ## Album Share Invite [/share/invite]
-### Album Share Invite [GET]
+### Album Share Invite [POST]
 Share an owned Album by email addresses.
 Requires `access_token`.
 
@@ -1677,11 +1677,22 @@ Requires `access_token`.
             {
                 "code": 0,
                 "message": "Success",
-                "result": null
+                "result": {
+                    "data": {
+                        "type": "album",
+                        "id": "qwe",
+                        "email": [
+                            "user1@example.com",
+                            "user2@example.com"
+                        ],
+                        "message": "Check it out!",
+                        "shareGroup": "GROUPCODE1"
+                    }
+                }
             }
 
 ## Album Share Accept [/share/accept]
-### Album Share Accept [GET]
+### Album Share Accept [POST]
 Accept an album invitation by code. Code only valid once.
 Requires `access_token`.
 

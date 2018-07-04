@@ -1651,6 +1651,112 @@ Requires `access_token`.
                     }
                 }
             }
+            
+## Album Edit [/my/albums/edit]
+### Edit User Album [POST]
+Edit album Requires `access_token`. for now it's only for update album name.
+
++ Request (application/json)
+
+        {
+            "id"  : "userAlbumId (oz8m8k1m9q)",
+            "name": "Holiday 2019"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "code": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "userAlbumId",
+                        "album": {
+                            "id": "zxc",
+                            "name": "Holiday 2019",
+                            "type": "USER",
+                            "is_shareable": true,
+                            "meta": {
+                                "photo_count": 10,
+                                "photo_thumbnail_path": "demo/image_6.jpg",
+                            },
+                            "created_at": "2018-04-07 12:01:12"
+                            "photos": [
+                                {
+                                    "id": "userPhotoId1",
+                                    "photo": {
+                                        "id": "asd",
+                                        "name": "SO1-101919-01",
+                                        "meta": {
+                                            "time": {
+                                                "date": "2018-04-01",
+                                                "timestamptz": "2018-03-31 23:23:23"
+                                            },
+                                            "location": {
+                                                "name": "Zulu",
+                                                "longitude": 0,
+                                                "latitude": 0
+                                            },
+                                            "tags": [
+                                                "bandung",
+                                                "gemah",
+                                                "ripah"
+                                            ],
+                                            "bytes": 2000000
+                                        },
+                                        "file_name": "SO-1000101-0001.jpg",
+                                        "file_path": "demo/image_1.jpg",
+                                        "file_path_thumbnails": {
+                                            "s": "demo/image_1.jpg",
+                                            "m": "demo/image_1.jpg",
+                                            "l": "demo/image_1.jpg"
+                                        },
+                                        "created_at": "2018-04-07 12:01:12"
+                                    },
+                                    "is_owner": true,
+                                    "created_at": "2018-04-07 12:01:12"
+                                },
+                                {
+                                    "id": "userPhotoId2",
+                                    "photo": {
+                                        "id": "asf",
+                                        "name": "SO1-101919-02",
+                                        "meta": {
+                                            "time": {
+                                                "date": "2018-04-01",
+                                                "timestamptz": "2018-03-31 23:23:23"
+                                            },
+                                            "location": {
+                                                "name": "Zulu",
+                                                "longitude": 0,
+                                                "latitude": 0
+                                            },
+                                            "tags": [
+                                                "bandung",
+                                                "gemah",
+                                                "ripah"
+                                            ],
+                                            "bytes": 2000000
+                                        },
+                                        "file_name": "SO-1000101-0002.jpg",
+                                        "file_path": "demo/image_2.jpg",
+                                        "file_path_thumbnails": {
+                                            "s": "demo/image_2.jpg",
+                                            "m": "demo/image_2.jpg",
+                                            "l": "demo/image_2.jpg"
+                                        },
+                                        "created_at": "2018-04-07 12:01:10"
+                                    },
+                                    "is_owner": false,
+                                    "created_at": "2018-04-07 11:01:11"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
 
 ## Group Share
 ## Album Share Invite [/share/invite]

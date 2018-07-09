@@ -1335,7 +1335,33 @@ Requires `access_token`.
                     }
                 }
             }
+            
+            
+## Photo Feedback Report [/my/photos/feedback]
+### Photo Feedback Report [POST]
+Photo feedback report
+Requires `access_token`.
 
++ Request (application/json)
+
+        {
+            "photo_id" : "photoId",
+            "reason" : "Foto Bagus",
+            "message" : "pesan ini di buat",
+            "rating" : 3
+        }
+        
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": null
+            }     
+            
+            
 ## Group Album
 
 Resource related to Album.
@@ -2632,6 +2658,60 @@ List of available page slugs:
                         {
                             "id": "42jm6rom10",
                             "name": "Soreang"
+                        }
+                    ]
+                }
+            }
+            
+## Reason Category List [/feedback/get]
+### Reason Category List [GET]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": {
+                    "data": [
+                        {
+                            "id": "p2oeol4e1j",
+                            "name": "Foto Jelek",
+                            "description": "Fotonya kurang jelas",
+                            "reason_feature": {
+                                "id": "xg3e46d46v",
+                                "name": "Photo Report"
+                            }
+                        },
+                        {
+                            "id": "g1xm0kpew0",
+                            "name": "Foto Blur",
+                            "description": "Blur Foto",
+                            "reason_feature": {
+                                "id": "xg3e46d46v",
+                                "name": "Photo Report"
+                            }
+                        },
+                        {
+                            "id": "rg4eyoxdo8",
+                            "name": "Foto Bagus",
+                            "description": "Foto bagus sekali",
+                            "reason_feature": {
+                                "id": "xg3e46d46v",
+                                "name": "Photo Report"
+                            }
+                        },
+                        {
+                            "id": "3jqmv09eog",
+                            "name": "Foto Ancur",
+                            "description": "Foto bagus sekali",
+                            "reason_feature": {
+                                "id": "xg3e46d46v",
+                                "name": "Photo Report"
+                            }
                         }
                     ]
                 }

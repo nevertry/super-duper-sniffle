@@ -1359,8 +1359,47 @@ Requires `access_token`.
                 "error": 0,
                 "message": "success",
                 "result": null
-            }     
+            }
             
+## Photo Share [/my/photos/share]
+### Photo Share [POST]
+Photo share
+Requires `access_token`.
+
++ Request (application/json)
+
+        {
+            "email": [
+                "example@example.com",
+                "example@example.com"
+            ],
+            "name" : "Share photos album",
+            "photos" : [
+                "photoId",
+                "photoId"
+            ],
+            "message" : "hallo it's me again"
+        }
+        
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": {
+                    "data": {
+                        "id": "shareId",
+                        "email": [
+                            "example@example.com",
+                            "example@example.com"
+                        ],
+                        "message": "hallo it's me again",
+                        "shareGroup": "GROUP-W4g"
+                    }
+                }
+            }
             
 ## Group Album
 

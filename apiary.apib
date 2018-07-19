@@ -564,6 +564,212 @@ Validate source. Successful Response can formed as authentication (/auth/login) 
                 }
             }
 
+## Connect Profile to Social Media [/auth/source/connect]
+### Source Connect [POST]
+Source Connect Requires `access_token`.
+Get verification id of a user authenticated with Source from Social Media Account.
+
+Available Sources:
+
+- `facebook`
+- `google`
+
++ Request (application/json)
+
+        {
+           "hash_id": "96e7bfe7de8c686810ad42bd2ca5693b"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "token": {
+                            "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": true,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": "uploads/avatars/15247262300.jpg",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1998-01-01",
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
+                                    "id": "qwe",
+                                    "country": {
+                                        "id": "qwe",
+                                        "name": "Indonesia",
+                                        "code": "IDN",
+                                        "phoneCode": "62"
+                                    },
+                                    "province": {
+                                        "id": "qwe",
+                                        "name": "Jawa Barat"
+                                    },
+                                    "city": {
+                                        "id": "qwe",
+                                        "name": "Bandung"
+                                    },
+                                    "district": {
+                                        "id": "qwe",
+                                        "name": "Galaxy"
+                                    },                
+                                    "address": "Jln Sinar Jaya",
+                                    "postcode": "40561",
+                                    "phone": "08974453551",
+                                    "fax": null
+                                },
+                                "other": [
+                                    {
+                                        "id": "qwe",
+                                        "country": {
+                                            "id": "qwe",
+                                            "name": "Indonesia",
+                                            "code": "IDN",
+                                            "phoneCode": "62"
+                                        },
+                                        "province": {
+                                            "id": "qwe",
+                                            "name": "Jawa Barat"
+                                        },
+                                        "city": {
+                                            "id": "qwe",
+                                            "name": "Bandung"
+                                        },
+                                        "district": {
+                                            "id": "qwe",
+                                            "name": "Galaxy"
+                                        },
+                                        "address": "Jln Planetarium",
+                                        "postcode": "40561",
+                                        "phone": null,
+                                        "fax": null
+                                    }
+                                ]
+                            },
+                            "social_media": {
+                                "faceboook": "socmed_id:1239801209",
+                                "google": "socmed_id:1239801209"
+                            }
+                        }
+                    }
+                }
+            }
+
+## Disconnect Profile from Social Media [/auth/source/disconnect/{userAlbumId}]
+### Source Disconnect [GET]
+Source Disconnect Requires `access_token`.
+Get verification id of a user authenticated with Source from Social Media Account.
+
+Available Sources:
+
+- `facebook`
+- `google`
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "token": {
+                            "access_token": "GjEud6CzqtQHpPyTxNSnpsDENLZMAAtBQDoxqeoJ",
+                            "token_type": "Bearer",
+                            "expires_in": 604800
+                        },
+                        "user": {
+                            "id": "qwe",
+                            "otp_activated": true,
+                            "customer_id": "ewq",
+                            "name": "Jon Otto",
+                            "username": "08974453551",
+                            "email": "jonotto@example.com",
+                            "avatar": "uploads/avatars/15247262300.jpg",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1998-01-01",
+                            "phone": "08974453551",
+                            "addresses": {
+                                "main": {
+                                    "id": "qwe",
+                                    "country": {
+                                        "id": "qwe",
+                                        "name": "Indonesia",
+                                        "code": "IDN",
+                                        "phoneCode": "62"
+                                    },
+                                    "province": {
+                                        "id": "qwe",
+                                        "name": "Jawa Barat"
+                                    },
+                                    "city": {
+                                        "id": "qwe",
+                                        "name": "Bandung"
+                                    },
+                                    "district": {
+                                        "id": "qwe",
+                                        "name": "Galaxy"
+                                    },                
+                                    "address": "Jln Sinar Jaya",
+                                    "postcode": "40561",
+                                    "phone": "08974453551",
+                                    "fax": null
+                                },
+                                "other": [
+                                    {
+                                        "id": "qwe",
+                                        "country": {
+                                            "id": "qwe",
+                                            "name": "Indonesia",
+                                            "code": "IDN",
+                                            "phoneCode": "62"
+                                        },
+                                        "province": {
+                                            "id": "qwe",
+                                            "name": "Jawa Barat"
+                                        },
+                                        "city": {
+                                            "id": "qwe",
+                                            "name": "Bandung"
+                                        },
+                                        "district": {
+                                            "id": "qwe",
+                                            "name": "Galaxy"
+                                        },
+                                        "address": "Jln Planetarium",
+                                        "postcode": "40561",
+                                        "phone": null,
+                                        "fax": null
+                                    }
+                                ]
+                            },
+                            "social_media": {
+                                "faceboook": "socmed_id:1239801209",
+                                "google": "socmed_id:1239801209"
+                            }
+                        }
+                    }
+                }
+            }
+            
 ## Group Password Reset
 ## Reset Password Initiate [/auth/forgot/reset]
 ### Reset Password Initiate [POST]

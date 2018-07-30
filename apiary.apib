@@ -1119,6 +1119,80 @@ Only these attributes are allowed to edit:
                 }
             }
 
+## Profile Change Password [/my/profile/change-password]
+### My Profile Change Password [POST]
+
+Update authorized user's Profile
+`access_token` is required.
+
+Only these attributes are allowed to edit:
+
+- old_password ; current password
+- new_password
+
++ Request (application/json)
+
+        {
+            "old_password": "secret",
+            "new_password": "secret",
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "otp_activated": true,
+                        "customer_id": "ewq",
+                        "name": "Jon Otto",
+                        "username": "08974453551",
+                        "email": "jonotto@example.com",
+                        "avatar": "uploads/avatars/15247262300.jpg",
+                        "gender": 1,
+                        "birth_place": null,
+                        "birth_date": "1945-08-17",
+                        "phone": "08974453551",
+                        "addresses": {
+                            "main": {
+                                "id": "qwe",
+                                "country": {
+                                    "id": "qwe",
+                                    "name": "Indonesia",
+                                    "code": "IDN",
+                                    "phoneCode": "62"
+                                },
+                                "province": {
+                                    "id": "qwe",
+                                    "name": "Jawa Barat"
+                                },
+                                "city": {
+                                    "id": "qwe",
+                                    "name": "Bandung"
+                                },
+                                "district": {
+                                    "id": "qwe",
+                                    "name": "Galaxy"
+                                },                
+                                "address": "Jln Sinar Jaya",
+                                "postcode": "40561",
+                                "phone": "08974453551",
+                                "fax": null
+                            },
+                            "other": []
+                        },
+                        "social_media": {
+                            "faceboook": "socmed_id:1239801209",
+                            "google": "socmed_id:1239801209"
+                        }
+                    }
+                }
+            }
+
 ## Group Banner
 
 Resource related to Banner.

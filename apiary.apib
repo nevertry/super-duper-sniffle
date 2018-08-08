@@ -1491,6 +1491,35 @@ Requires `access_token`.
                     }
                 }
             }
+            
+## Group Feedback Notification
+
+Resource related to Feedback Notification.
+`access_token` is required.
+
+## Photo Feedback Report [/feedback/post]
+### Photo Feedback Report [POST]
+Photo feedback report
+Requires `access_token`.
+
++ Request (application/json)
+
+        {
+            "rate" : 5,
+            "reason" : "98r1ywoney",
+            "comment" : "pesan ini di buat",
+            "id_notif" : "98r1ywoney"
+        }
+        
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": null
+            }
 
 ## Group Photo
 
@@ -3122,8 +3151,17 @@ List of available page slugs:
                 }
             }
             
-## Reason Category List [/feedback/get]
+## Reason Category List [/feedback/get?]
 ### Reason Category List [GET]
+
+Displaying type reason by additional query string:
+
+- Items in type: `type=good`
+
+Available type are `good` and `bad` by default show `good` reason.Add
+
+Example request: `/feedback/get?type=bad`
+
 
 + Request (application/json)
 

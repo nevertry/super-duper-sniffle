@@ -3213,3 +3213,81 @@ Example request: `/feedback/get?type=bad`
                     ]
                 }
             }
+
+## Group Addresses
+## Add / Edit Address [/my/profile/address]
+### Add / Edit Address [POST]
+This API can use to add new address or edit current address, just change value id become null to add new address.
+Requires `access_token`.
+
+- main => use 1 if main address, use 0 if not main address
+
++ Request (application/json)
+
+        {
+            "id": null,
+            "title": "test address",
+            "phone": "12345678910",
+            "province": "p2oeol4e1j",
+            "city": "p2oeol4e1j",
+            "district" : "p2oeol4e1j",
+            "address" : "address",
+            "postcode" : 40000,
+            "main" : 0
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "Success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "otp_activated": true,
+                        "customer_id": "ewq",
+                        "name": "Jon Otto",
+                        "username": "08974453551",
+                        "email": "jonotto@example.com",
+                        "avatar": "uploads/avatars/15247262300.jpg",
+                        "gender": 1,
+                        "birth_place": null,
+                        "birth_date": "1945-08-17",
+                        "phone": "08974453551",
+                        "addresses": {
+                            "main": {
+                                "id": "qwe",
+                                "country": {
+                                    "id": "qwe",
+                                    "name": "Indonesia",
+                                    "code": "IDN",
+                                    "phoneCode": "62"
+                                },
+                                "province": {
+                                    "id": "qwe",
+                                    "name": "Jawa Barat"
+                                },
+                                "city": {
+                                    "id": "qwe",
+                                    "name": "Bandung"
+                                },
+                                "district": {
+                                    "id": "qwe",
+                                    "name": "Galaxy"
+                                },                
+                                "address": "Jln Sinar Jaya",
+                                "postcode": "40561",
+                                "phone": "08974453551",
+                                "fax": null
+                            },
+                            "other": []
+                        },
+                        "social_media": {
+                            "faceboook": "socmed_id:1239801209",
+                            "google": "socmed_id:1239801209"
+                        }
+                    }
+                }
+            }

@@ -3427,3 +3427,41 @@ This API can use to delete address, just change value `addressId`
                     }
                 }
             }
+## Group Membership
+## Get Status Membership [/membership]
+### Get Status Membership [GET]
+This API can use to get status customer membership status.
+Requires `access_token`.
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "error": 0,
+                "message": "success",
+                "result": {
+                    "data": {
+                        "id": "qwe",
+                        "activation_time": "2019-03-25 16:44:19",
+                        "expire_time": "2020-04-25 16:44:19",
+                        "customer_data": {
+                            "id": "qwe",
+                            "name": "John doe",
+                            "gender": 1,
+                            "birth_place": null,
+                            "birth_date": "1996-05-04",
+                            "phone": "12345641234"
+                        },
+                        "membersip_data": {
+                            "id": "qwe",
+                            "name": "Regular",
+                            "code": "regular",
+                            "status": "public",
+                            "storage_quota": 0,
+                            "upload_allowed": 1
+                        },
+                        "created_at": "2019-03-25 04:44:19"
+                    }
+                }
+            }
